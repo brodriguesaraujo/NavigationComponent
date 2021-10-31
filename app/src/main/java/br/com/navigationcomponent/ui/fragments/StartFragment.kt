@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.FragmentStartBinding
+import br.com.navigationcomponent.extensions.navigateWithAnimations
 
 class StartFragment : Fragment() {
 
@@ -25,7 +26,7 @@ class StartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonNext.setOnClickListener {
-            findNavController().navigate(R.id.action_startFragment_to_profileFragment)
+            findNavController().navigateWithAnimations(R.id.action_startFragment_to_profileFragment)
         }
     }
 }
