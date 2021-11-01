@@ -7,4 +7,12 @@
 
     <!-- Profile Fragment -->
     <string name="fragment_action_bar_profile">Profile</string>
+
+    <!-- Login Fragment -->
+    <string name="login_action_bar_title">Login</string>
+    <string name="login_input_layout_hint_username">Username</string>
+    <string name="login_input_layout_hint_password">Password</string>
+    <string name="login_button_text_sign_in">Sign in</string>
+    <string name="login_button_text_sign_up">Sign up</string>
+    <string name="login_error">Login ou Senha Inválidos</string>
 </resources>

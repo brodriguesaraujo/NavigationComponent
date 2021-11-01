@@ -19,4 +19,9 @@
         android:name="br.com.navigationcomponent.ui.fragments.ProfileFragment"
         android:label="@string/fragment_action_bar_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="br.com.navigationcomponent.ui.fragments.LoginFragment"
+        android:label="login_fragment"
+        tools:layout="@layout/login_fragment" />
 </navigation>
