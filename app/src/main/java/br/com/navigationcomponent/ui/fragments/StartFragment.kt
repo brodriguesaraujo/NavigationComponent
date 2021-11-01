@@ -25,6 +25,10 @@ class StartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setButtonNext()
+    }
+
+    private fun setButtonNext() {
         binding.buttonNext.setOnClickListener {
             findNavController().navigateWithAnimations(R.id.action_startFragment_to_profileFragment)
         }

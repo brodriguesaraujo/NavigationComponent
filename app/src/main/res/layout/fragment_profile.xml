@@ -5,4 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ProfileFragment">
 
+    <TextView
+        android:id="@+id/text_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        tools:text="Welcome, Bruno" />
+
 </FrameLayout>

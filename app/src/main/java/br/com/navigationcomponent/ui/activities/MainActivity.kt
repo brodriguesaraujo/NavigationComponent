@@ -21,12 +21,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.myToolbar)
+        setToolbar()
+        setActionBarWithNavController()
+    }
 
+    private fun setActionBarWithNavController() {
         navController = findNavController(R.id.navHostFragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
-
         setupActionBarWithNavController(navController, appBarConfiguration)
+    }
+
+    private fun setToolbar() {
+        setSupportActionBar(binding.myToolbar)
     }
 
     override fun onSupportNavigateUp(): Boolean {
