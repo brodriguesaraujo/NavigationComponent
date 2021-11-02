@@ -9,16 +9,20 @@ import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.LoginFragmentBinding
-import br.com.navigationcomponent.extensions.navigateWithAnimations
 import br.com.navigationcomponent.ui.viewmodel.LoginViewModel
 
 class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by activityViewModels()
     private lateinit var binding: LoginFragmentBinding
+
+    private val navController: NavController by lazy {
+        findNavController()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,12 +55,14 @@ class LoginFragment : Fragment() {
     }
 
     private fun observer() {
-        viewModel.mAuthorized.observe(viewLifecycleOwner, {
-            if (it) {
-                findNavController().navigateWithAnimations(R.id.profileFragment)
-                viewModel.mUnauthorized.value = false
-            } else {
-                Toast.makeText(context, R.string.login_error, Toast.LENGTH_SHORT).show()
+        viewModel.authorized.observe(viewLifecycleOwner, {
+            when (it) {
+                is LoginViewModel.AuthenticationState.Authenticated -> {
+                    navController.popBackStack()
+                }
+                is LoginViewModel.AuthenticationState.InvalidateAuthenticate -> {
+                    Toast.makeText(context, R.string.login_error, Toast.LENGTH_SHORT).show()
+                }
             }
         })
     }
@@ -68,7 +74,7 @@ class LoginFragment : Fragment() {
 
     private fun cancelAuthentication() {
         viewModel.refuseAuthetication()
-        findNavController().popBackStack(R.id.startFragment, false)
+        navController.popBackStack(R.id.startFragment, false)
     }
 
 }

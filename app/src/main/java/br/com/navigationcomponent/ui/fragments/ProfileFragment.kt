@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.FragmentProfileBinding
@@ -31,11 +33,16 @@ class ProfileFragment : Fragment() {
     }
 
     private fun observer() {
-        loginViewModel.mUnauthorized.observe(viewLifecycleOwner, {
-            if (it) {
-                findNavController().navigate(R.id.loginFragment)
-            } else {
-                binding.textWelcome.text = getString(R.string.text_welcome, loginViewModel.username)
+        val navController = findNavController()
+        loginViewModel.authorized.observe(viewLifecycleOwner, {
+            when (it) {
+                is LoginViewModel.AuthenticationState.Authenticated -> {
+                    binding.textWelcome.text =
+                        getString(R.string.text_welcome, loginViewModel.username)
+                }
+                is LoginViewModel.AuthenticationState.Unauthenticated -> {
+                    navController.navigate(R.id.loginFragment)
+                }
             }
         })
     }
