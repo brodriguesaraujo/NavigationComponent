@@ -1,4 +1,4 @@
-package br.com.navigationcomponent.ui.fragments
+package br.com.navigationcomponent.ui.profile
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.FragmentProfileBinding
-import br.com.navigationcomponent.ui.viewmodel.LoginViewModel
+import br.com.navigationcomponent.ui.viewmodel.UserViewModel
 
 class ProfileFragment : Fragment() {
 
-    private val loginViewModel: LoginViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
     private lateinit var binding: FragmentProfileBinding
 
     override fun onCreateView(
@@ -34,13 +32,13 @@ class ProfileFragment : Fragment() {
 
     private fun observer() {
         val navController = findNavController()
-        loginViewModel.authorized.observe(viewLifecycleOwner, {
+        userViewModel.authorized.observe(viewLifecycleOwner, {
             when (it) {
-                is LoginViewModel.AuthenticationState.Authenticated -> {
+                is UserViewModel.AuthenticationState.Authenticated -> {
                     binding.textWelcome.text =
-                        getString(R.string.text_welcome, loginViewModel.username)
+                        getString(R.string.text_welcome, userViewModel.username)
                 }
-                is LoginViewModel.AuthenticationState.Unauthenticated -> {
+                is UserViewModel.AuthenticationState.Unauthenticated -> {
                     navController.navigate(R.id.loginFragment)
                 }
             }

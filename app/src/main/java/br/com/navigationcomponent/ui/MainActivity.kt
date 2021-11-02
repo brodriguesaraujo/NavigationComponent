@@ -1,4 +1,4 @@
-package br.com.navigationcomponent.ui.activities
+package br.com.navigationcomponent.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

@@ -1,4 +1,4 @@
-package br.com.navigationcomponent.ui.fragments
+package br.com.navigationcomponent.ui.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,11 +13,11 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.LoginFragmentBinding
-import br.com.navigationcomponent.ui.viewmodel.LoginViewModel
+import br.com.navigationcomponent.ui.viewmodel.UserViewModel
 
 class LoginFragment : Fragment() {
 
-    private val viewModel: LoginViewModel by activityViewModels()
+    private val userViewModel: UserViewModel by activityViewModels()
     private lateinit var binding: LoginFragmentBinding
 
     private val navController: NavController by lazy {
@@ -50,17 +50,17 @@ class LoginFragment : Fragment() {
         binding.buttonLoginSignIn.setOnClickListener {
             val username = binding.inputLoginUsername.text.toString()
             val password = binding.inputLoginPassword.text.toString()
-            viewModel.authetication(username, password)
+            userViewModel.authetication(username, password)
         }
     }
 
     private fun observer() {
-        viewModel.authorized.observe(viewLifecycleOwner, {
+        userViewModel.authorized.observe(viewLifecycleOwner, {
             when (it) {
-                is LoginViewModel.AuthenticationState.Authenticated -> {
+                is UserViewModel.AuthenticationState.Authenticated -> {
                     navController.popBackStack()
                 }
-                is LoginViewModel.AuthenticationState.InvalidateAuthenticate -> {
+                is UserViewModel.AuthenticationState.InvalidateAuthenticate -> {
                     Toast.makeText(context, R.string.login_error, Toast.LENGTH_SHORT).show()
                 }
             }
@@ -73,7 +73,7 @@ class LoginFragment : Fragment() {
     }
 
     private fun cancelAuthentication() {
-        viewModel.refuseAuthetication()
+        userViewModel.refuseAuthetication()
         navController.popBackStack(R.id.startFragment, false)
     }
 

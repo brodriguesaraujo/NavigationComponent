@@ -1,4 +1,4 @@
-package br.com.navigationcomponent.ui.fragments
+package br.com.navigationcomponent.ui.start
 
 import android.os.Bundle
 import android.view.LayoutInflater
