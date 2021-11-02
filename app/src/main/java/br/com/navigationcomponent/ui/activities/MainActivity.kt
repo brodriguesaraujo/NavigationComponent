@@ -1,7 +1,7 @@
 package br.com.navigationcomponent.ui.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -27,8 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setActionBarWithNavController() {
         navController = findNavController(R.id.navHostFragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        setupActionBarWithNavController(navController)
     }
 
     private fun setToolbar() {
@@ -36,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp(appBarConfiguration) ||super.onSupportNavigateUp()
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
