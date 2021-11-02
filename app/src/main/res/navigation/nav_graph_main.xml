@@ -23,5 +23,19 @@
         android:id="@+id/loginFragment"
         android:name="br.com.navigationcomponent.ui.login.LoginFragment"
         android:label="@string/login_action_bar_title"
-        tools:layout="@layout/login_fragment" />
+        tools:layout="@layout/login_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_navigation"
+            app:destination="@id/navigation" />
+        <argument android:name="name"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/registerFragment">
+        <fragment
+            android:id="@+id/registerFragment"
+            android:name="br.com.navigationcomponent.ui.register.RegisterFragment"
+            android:label="RegisterFragment" />
+    </navigation>
 </navigation>
