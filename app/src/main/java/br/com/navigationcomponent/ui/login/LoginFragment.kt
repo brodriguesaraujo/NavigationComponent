@@ -13,6 +13,7 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import br.com.navigationcomponent.R
 import br.com.navigationcomponent.databinding.LoginFragmentBinding
+import br.com.navigationcomponent.extensions.navigateWithAnimations
 import br.com.navigationcomponent.ui.viewmodel.UserViewModel
 
 class LoginFragment : Fragment() {
@@ -36,7 +37,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         observer()
-        authetication()
+        setButton()
         returnPlunderCorrect()
     }
 
@@ -46,11 +47,15 @@ class LoginFragment : Fragment() {
         }
     }
 
-    private fun authetication() {
-        binding.buttonLoginSignIn.setOnClickListener {
-            val username = binding.inputLoginUsername.text.toString()
-            val password = binding.inputLoginPassword.text.toString()
+    private fun setButton() {
+        binding.loginButtonSignIn.setOnClickListener {
+            val username = binding.loginInputUsername.text.toString()
+            val password = binding.loginInputPassword.text.toString()
             userViewModel.authetication(username, password)
+        }
+
+        binding.loginButtonSignUp.setOnClickListener {
+            navController.navigateWithAnimations(R.id.action_loginFragment_to_navigation)
         }
     }
 
@@ -76,5 +81,4 @@ class LoginFragment : Fragment() {
         userViewModel.refuseAuthetication()
         navController.popBackStack(R.id.startFragment, false)
     }
-
 }

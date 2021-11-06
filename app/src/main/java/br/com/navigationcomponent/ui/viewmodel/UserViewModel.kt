@@ -35,5 +35,4 @@ class UserViewModel : ViewModel() {
         }
         this.username = username
     }
-
 }

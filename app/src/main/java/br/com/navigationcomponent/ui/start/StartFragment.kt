@@ -29,7 +29,7 @@ class StartFragment : Fragment() {
     }
 
     private fun setButtonNext() {
-        binding.buttonNext.setOnClickListener {
+        binding.startButtonNext.setOnClickListener {
             findNavController().navigateWithAnimations(R.id.action_startFragment_to_profileFragment)
         }
     }

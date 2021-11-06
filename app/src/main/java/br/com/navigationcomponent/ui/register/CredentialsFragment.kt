@@ -39,7 +39,7 @@ class CredentialsFragment : Fragment() {
         observer()
         setButton()
         returnPlunderCorrect()
-        binding.loginTextWelcome.text = getString(R.string.login_text_welcome, args.name)
+        binding.credentialsTextWelcome.text = getString(R.string.login_text_welcome, args.name)
     }
 
     private fun returnPlunderCorrect() {
@@ -49,9 +49,9 @@ class CredentialsFragment : Fragment() {
     }
 
     private fun setButton() {
-        binding.buttonLoginSignIn.setOnClickListener {
-            val username = binding.inputLoginUsername.text.toString()
-            val password = binding.inputLoginPassword.text.toString()
+        binding.credentialsButtonSignIn.setOnClickListener {
+            val username = binding.credentialsInputUsername.text.toString()
+            val password = binding.credentialsInputPassword.text.toString()
             userViewModel.authetication(username, password)
         }
     }

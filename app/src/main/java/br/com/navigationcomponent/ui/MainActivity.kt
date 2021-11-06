@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setToolbar() {
-        setSupportActionBar(binding.myToolbar)
+        setSupportActionBar(binding.mainToolbar)
     }
 
     override fun onSupportNavigateUp(): Boolean {

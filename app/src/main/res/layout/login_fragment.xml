@@ -8,23 +8,14 @@
     android:padding="16dp"
     tools:context=".ui.login.LoginFragment">
 
-    <TextView
-        android:id="@+id/login_text_welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Hello, Fulano\nEnter credentials"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:visibility="gone"/>
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutLoginUsername"
+        android:id="@+id/login_input_layout_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_input_layout_hint_username">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/inputLoginUsername"
+            android:id="@+id/login_input_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -33,14 +24,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutLoginPassword"
+        android:id="@+id/login_input_layout_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/forms_default_margin_top"
         android:hint="@string/login_input_layout_hint_password">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/inputLoginPassword"
+            android:id="@+id/login_input_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionDone"
@@ -49,14 +40,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignIn"
+        android:id="@+id/login_button_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/forms_default_margin_top"
         android:text="@string/login_button_text_sign_in" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignUp"
+        android:id="@+id/login_button_sign_up"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/forms_default_margin_top"

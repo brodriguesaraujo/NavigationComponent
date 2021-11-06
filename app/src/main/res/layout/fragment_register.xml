@@ -9,13 +9,13 @@
     tools:context=".ui.login.LoginFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutLoginUsername"
+        android:id="@+id/register_input_layout_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_input_layout_hint_name">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/inputLoginUsername"
+            android:id="@+id/register_input_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
@@ -24,7 +24,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buttonLoginSignUp"
+        android:id="@+id/register_button_save"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/forms_default_margin_top"

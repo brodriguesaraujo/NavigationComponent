@@ -16,8 +16,7 @@
     <string name="login_button_text_sign_in">Sign in</string>
     <string name="login_button_text_sign_up">Sign up</string>
     <string name="login_error">Login ou Senha Inválidos</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_text_welcome">Hello, %1$s\nEnter credentials</string>
 
     <!-- Register Fragment -->
     <string name="register_button_save">Save</string>

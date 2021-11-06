@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
         userViewModel.authorized.observe(viewLifecycleOwner, {
             when (it) {
                 is UserViewModel.AuthenticationState.Authenticated -> {
-                    binding.textWelcome.text =
+                    binding.profileTextWelcome.text =
                         getString(R.string.text_welcome, userViewModel.username)
                 }
                 is UserViewModel.AuthenticationState.Unauthenticated -> {
