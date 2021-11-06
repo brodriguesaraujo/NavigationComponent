@@ -4,8 +4,11 @@
 
 ### 📋 Pré-requisitos 
 
-- Android 7.0 ou superior 
+ - Android 7.0 ou superior 
 
-### 📦 Desenvolvimento 
+### 🛠️ Desenvolvimento 
 
-- 🚧 Em andamento.. 🚧
+ - ##### Compartilhamento de dados entre os fragments com activityViewModels
+ - ##### Passando dados com SafeArgs
+ - ##### Controle de estado com Selead Class
+ - ##### Animações entre transições de tela
